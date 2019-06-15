@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		3869F2F022B578A8001BFABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F2EF22B578A8001BFABD /* AppDelegate.swift */; };
 		3869F2F222B578A8001BFABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F2F122B578A8001BFABD /* SceneDelegate.swift */; };
-		3869F2F422B578A8001BFABD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F2F322B578A8001BFABD /* ContentView.swift */; };
 		3869F2F622B578A9001BFABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3869F2F522B578A9001BFABD /* Assets.xcassets */; };
 		3869F2F922B578A9001BFABD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3869F2F822B578A9001BFABD /* Preview Assets.xcassets */; };
 		3869F2FC22B578A9001BFABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3869F2FA22B578A9001BFABD /* LaunchScreen.storyboard */; };
 		3869F30722B578A9001BFABD /* SnailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F30622B578A9001BFABD /* SnailTests.swift */; };
 		3869F31222B578A9001BFABD /* SnailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F31122B578A9001BFABD /* SnailUITests.swift */; };
+		3869F32022B578E8001BFABD /* Snail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F31F22B578E8001BFABD /* Snail.swift */; };
+		3869F32222B57A6C001BFABD /* SnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F32122B57A6C001BFABD /* SnailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		3869F2EC22B578A8001BFABD /* Snail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3869F2EF22B578A8001BFABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3869F2F122B578A8001BFABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3869F2F322B578A8001BFABD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3869F2F522B578A9001BFABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3869F2F822B578A9001BFABD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3869F2FB22B578A9001BFABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		3869F30D22B578A9001BFABD /* SnailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3869F31122B578A9001BFABD /* SnailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnailUITests.swift; sourceTree = "<group>"; };
 		3869F31322B578A9001BFABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3869F31F22B578E8001BFABD /* Snail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snail.swift; sourceTree = "<group>"; };
+		3869F32122B57A6C001BFABD /* SnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,10 @@
 		3869F2EE22B578A8001BFABD /* Snail */ = {
 			isa = PBXGroup;
 			children = (
+				3869F31F22B578E8001BFABD /* Snail.swift */,
+				3869F32122B57A6C001BFABD /* SnailView.swift */,
 				3869F2EF22B578A8001BFABD /* AppDelegate.swift */,
 				3869F2F122B578A8001BFABD /* SceneDelegate.swift */,
-				3869F2F322B578A8001BFABD /* ContentView.swift */,
 				3869F2F522B578A9001BFABD /* Assets.xcassets */,
 				3869F2FA22B578A9001BFABD /* LaunchScreen.storyboard */,
 				3869F2FD22B578A9001BFABD /* Info.plist */,
@@ -268,8 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3869F2F022B578A8001BFABD /* AppDelegate.swift in Sources */,
+				3869F32022B578E8001BFABD /* Snail.swift in Sources */,
 				3869F2F222B578A8001BFABD /* SceneDelegate.swift in Sources */,
-				3869F2F422B578A8001BFABD /* ContentView.swift in Sources */,
+				3869F32222B57A6C001BFABD /* SnailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
