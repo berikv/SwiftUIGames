@@ -15,7 +15,8 @@ Download Xcode 11 (beta) from http://developer.apple.com/
 
 ### Snail
 
-A classic. See ![a screenshot](Screenshot.png | width=200)
+A classic.
+<img src="Screenshot.png" width="200/>
 
 ## Author
 
