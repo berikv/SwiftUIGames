@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Snail
+//  SwiftUIGames
 //
-//  Created by Berik Visschers on 2019-06-15.
+//  Created by Berik Visschers on 2019-06-16.
 //  Copyright © 2019 Berik Visschers. All rights reserved.
 //
 

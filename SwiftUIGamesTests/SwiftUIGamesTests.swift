@@ -1,15 +1,15 @@
 //
-//  SnailTests.swift
-//  SnailTests
+//  SwiftUIGamesTests.swift
+//  SwiftUIGamesTests
 //
-//  Created by Berik Visschers on 2019-06-15.
+//  Created by Berik Visschers on 2019-06-16.
 //  Copyright © 2019 Berik Visschers. All rights reserved.
 //
 
 import XCTest
-@testable import Snail
+@testable import SwiftUIGames
 
-class SnailTests: XCTestCase {
+class SwiftUIGamesTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

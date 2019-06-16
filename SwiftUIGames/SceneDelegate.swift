@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Snail
+//  SwiftUIGames
 //
-//  Created by Berik Visschers on 2019-06-15.
+//  Created by Berik Visschers on 2019-06-16.
 //  Copyright © 2019 Berik Visschers. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: SnailView())
+        window.rootViewController = UIHostingController(rootView: ContentView())
         self.window = window
         window.makeKeyAndVisible()
     }
