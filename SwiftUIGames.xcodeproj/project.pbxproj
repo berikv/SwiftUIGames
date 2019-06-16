@@ -57,6 +57,7 @@
 		3869F36622B5BE2B001BFABD /* Snail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snail.swift; sourceTree = "<group>"; };
 		3869F36A22B5BE8F001BFABD /* TicTacToe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe.swift; sourceTree = "<group>"; };
 		3869F36C22B5BE9A001BFABD /* TicTacToeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeView.swift; sourceTree = "<group>"; };
+		3869F36E22B5C13F001BFABD /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 		3869F32822B5BDE6001BFABD = {
 			isa = PBXGroup;
 			children = (
+				3869F36E22B5C13F001BFABD /* Readme.md */,
 				3869F33322B5BDE6001BFABD /* SwiftUIGames */,
 				3869F34A22B5BDE6001BFABD /* SwiftUIGamesTests */,
 				3869F35522B5BDE6001BFABD /* SwiftUIGamesUITests */,

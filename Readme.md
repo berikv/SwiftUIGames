@@ -16,7 +16,11 @@ Download Xcode 11 (beta) from http://developer.apple.com/
 ### Snail
 
 A classic.
-<img src="Screenshot.png" width="200">
+<img src="Snail.png" width="200">
+
+### Tic tac toe
+
+<img src="Tictactoe.png" width="200">
 
 ## Author
 
