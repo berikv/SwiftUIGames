@@ -10,7 +10,20 @@ import SwiftUI
 
 struct ContentView : View {
     var body: some View {
-        SnailView()
+
+        NavigationView {
+            List {
+                NavigationButton(destination: SnailView()) {
+                    Text("Snail")
+                }
+                NavigationButton(destination: TicTacToeView()) {
+                    Text("Tic tac toe")
+                }
+            }
+
+        }
+            .navigationBarTitle(Text("Games"))
+
     }
 }
 
