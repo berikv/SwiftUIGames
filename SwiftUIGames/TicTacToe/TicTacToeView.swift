@@ -19,7 +19,7 @@ struct TicTacToeView: View {
                 TicTacToeCellView(cell: self.game.cellAt(row, column)) {
                     self.game.play(row, column)
                 }
-                }
+            }
                 .overlay(TicTacToeWinningLineView(winningLine: game.winningLine))
 
             Button(action: { self.game.replay() },

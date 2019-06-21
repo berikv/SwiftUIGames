@@ -23,14 +23,14 @@ struct LineIndex: Hashable {
 }
 
 enum Difficulty: CaseIterable {
-    case small, medium, big, huge
+    case easy, medium, hard, veryHard
 
     var size: Int {
         switch self {
-        case .small: return 6
-        case .medium: return 8
-        case .big: return 10
-        case .huge: return 12
+        case .easy: return 4
+        case .medium: return 6
+        case .hard: return 8
+        case .veryHard: return 10
         }
     }
 }
@@ -48,24 +48,22 @@ struct Rules {
 
     init(difficulty: Difficulty) {
         switch difficulty {
-        case .small: self.availableColorsCount = 4
-        case .medium: self.availableColorsCount = 4
-        case .big: self.availableColorsCount = 4
-        case .huge: self.availableColorsCount = 4
-        }
-
-        switch difficulty {
-        case .small: self.lineLength = 3
-        case .medium: self.lineLength = 4
-        case .big: self.lineLength = 4
-        case .huge: self.lineLength = 5
-        }
-
-        switch difficulty {
-        case .small: self.addRandomCount = 1
-        case .medium: self.addRandomCount = 1
-        case .big: self.addRandomCount = 2
-        case .huge: self.addRandomCount = 3
+        case .easy:
+            self.lineLength = 3
+            self.availableColorsCount = 3
+            self.addRandomCount = 1
+        case .medium:
+            self.lineLength = 4
+            self.availableColorsCount = 4
+            self.addRandomCount = 1
+        case .hard:
+            self.lineLength = 4
+            self.availableColorsCount = 4
+            self.addRandomCount = 2
+        case .veryHard:
+            self.lineLength = 5
+            self.availableColorsCount = 5
+            self.addRandomCount = 3
         }
     }
 }
