@@ -97,7 +97,7 @@ struct SnailView: View {
     }
 }
 
-struct ControlsView: View {
+private struct ControlsView: View {
     let upAction: () -> ()
     let downAction: () -> ()
     let leftAction: () -> ()
