@@ -13,14 +13,14 @@ struct TicTacToeView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
-            TicTacToeHeaderView(gameState: game.state)
+            HeaderView(gameState: game.state)
 
-            TicTacToeBoardView { row, column in
-                TicTacToeCellView(cell: self.game.cellAt(row, column)) {
+            BoardView { row, column in
+                CellView(cell: self.game.cellAt(row, column)) {
                     self.game.play(row, column)
                 }
             }
-                .overlay(TicTacToeWinningLineView(winningLine: game.winningLine))
+                .overlay(WinningLineView(winningLine: game.winningLine))
 
             Button(action: { self.game.replay() },
                    label: { Text("Replay") })
@@ -28,7 +28,7 @@ struct TicTacToeView: View {
     }
 }
 
-struct TicTacToeHeaderView: View {
+private struct HeaderView: View {
     let gameState: TicTacToe.GameState
     init(gameState: TicTacToe.GameState) {
         self.gameState = gameState
@@ -43,9 +43,9 @@ struct TicTacToeHeaderView: View {
     }
 }
 
-struct TicTacToeBoardView: View {
-    let createCellHandler: (Int, Int) -> TicTacToeCellView
-    init(createCellHandler: @escaping (Int, Int) -> TicTacToeCellView) {
+private struct BoardView: View {
+    let createCellHandler: (Int, Int) -> CellView
+    init(createCellHandler: @escaping (Int, Int) -> CellView) {
         self.createCellHandler = createCellHandler
     }
 
@@ -62,7 +62,7 @@ struct TicTacToeBoardView: View {
     }
 }
 
-struct TicTacToeCellView: View {
+private struct CellView: View {
     let cell: TicTacToe.Cell
     let didTapHandler: () -> ()
     let size: CGFloat = 60
@@ -115,13 +115,13 @@ struct TicTacToeCellView: View {
                 path.addLine(to: CGPoint(x: xmax, y: ymax))
                 path.move(to: CGPoint(x: xmin, y: ymax))
                 path.addLine(to: CGPoint(x: xmax, y: ymin))
-                }
+            }
                 .stroke(self.lineColor, lineWidth: self.lineWidth)
         }
     }
 }
 
-struct TicTacToeWinningLineView: View {
+private struct WinningLineView: View {
     let winningLine: [TicTacToe.BoardIndex]?
     init(winningLine: [TicTacToe.BoardIndex]?) {
         self.winningLine = winningLine
