@@ -58,7 +58,7 @@ struct TicTacToeBoardView: View {
                     }
                 }
             }
-        }
+        }.overlay(Background())
     }
 }
 
@@ -80,10 +80,6 @@ struct TicTacToeCellView: View {
 
     private var cellContent: some View {
         ZStack {
-            Rectangle()
-                .scaledToFill()
-                .foregroundColor(Color.blue)
-
             cross
                 .animation(.spring())
                 .opacity(cell == .playedBy(.x) ? 1 : 0)
@@ -99,11 +95,12 @@ struct TicTacToeCellView: View {
 
     let inset = Length(10)
     let lineWidth = Length(5)
+    let lineColor = Color.primary
 
     private var circle: some View {
         Circle()
             .inset(by: inset)
-            .stroke(Color.white, lineWidth: lineWidth)
+            .stroke(lineColor, lineWidth: lineWidth)
     }
 
     private var cross: some View {
@@ -119,7 +116,7 @@ struct TicTacToeCellView: View {
                 path.move(to: CGPoint(x: xmin, y: ymax))
                 path.addLine(to: CGPoint(x: xmax, y: ymin))
                 }
-                .stroke(Color.white, lineWidth: self.lineWidth)
+                .stroke(self.lineColor, lineWidth: self.lineWidth)
         }
     }
 }
@@ -154,10 +151,35 @@ struct TicTacToeWinningLineView: View {
                                       y: coordinate(for: line[0].1)))
                 path.addLine(to: CGPoint(x: coordinate(for: line[2].0),
                                          y: coordinate(for: line[2].1)))
-
-                }
+            }
                 .stroke(style: StrokeStyle(lineCap: .round))
                 .stroke(Color.orange, lineWidth: 6)
+        }
+    }
+}
+
+private struct Background: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Path { path in
+                path.move(to: CGPoint(x: geometry.size.width / 3,
+                                      y: 0))
+                path.addLine(to: CGPoint(x: geometry.size.width / 3,
+                                         y: geometry.size.height))
+                path.move(to: CGPoint(x: geometry.size.width * 2 / 3,
+                                      y: 0))
+                path.addLine(to: CGPoint(x: geometry.size.width * 2 / 3,
+                                         y: geometry.size.height))
+                path.move(to: CGPoint(x: 0,
+                                      y: geometry.size.height / 3))
+                path.addLine(to: CGPoint(x: geometry.size.width,
+                                         y: geometry.size.height / 3))
+                path.move(to: CGPoint(x: 0,
+                                      y: geometry.size.height * 2 / 3))
+                path.addLine(to: CGPoint(x: geometry.size.width,
+                                         y: geometry.size.height * 2 / 3))
+                }
+                .stroke(Color.secondary, lineWidth: Length(2))
         }
     }
 }

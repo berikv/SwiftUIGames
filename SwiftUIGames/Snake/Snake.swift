@@ -1,9 +1,6 @@
 
 public struct Snake {
     public typealias Move = Direction
-
-    public let size: BoardSize
-
     public enum Direction {
         case up, down, left, right
     }
@@ -31,6 +28,8 @@ public struct Snake {
             return Position(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
         }
     }
+
+    public let size: BoardSize
 
     public private(set) var status = Status.playing
     public private(set) var snake: [Position]
