@@ -16,8 +16,8 @@
 		3869F34122B5BDE6001BFABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3869F33F22B5BDE6001BFABD /* LaunchScreen.storyboard */; };
 		3869F34C22B5BDE6001BFABD /* SwiftUIGamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F34B22B5BDE6001BFABD /* SwiftUIGamesTests.swift */; };
 		3869F35722B5BDE6001BFABD /* SwiftUIGamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F35622B5BDE6001BFABD /* SwiftUIGamesUITests.swift */; };
-		3869F36722B5BE2B001BFABD /* SnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36522B5BE2B001BFABD /* SnailView.swift */; };
-		3869F36822B5BE2B001BFABD /* Snail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36622B5BE2B001BFABD /* Snail.swift */; };
+		3869F36722B5BE2B001BFABD /* SnakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36522B5BE2B001BFABD /* SnakeView.swift */; };
+		3869F36822B5BE2B001BFABD /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36622B5BE2B001BFABD /* Snake.swift */; };
 		3869F36B22B5BE8F001BFABD /* TicTacToe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36A22B5BE8F001BFABD /* TicTacToe.swift */; };
 		3869F36D22B5BE9A001BFABD /* TicTacToeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F36C22B5BE9A001BFABD /* TicTacToeView.swift */; };
 		3869F37322B66A38001BFABD /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F37222B66A38001BFABD /* Lines.swift */; };
@@ -61,8 +61,8 @@
 		3869F35222B5BDE6001BFABD /* SwiftUIGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3869F35622B5BDE6001BFABD /* SwiftUIGamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIGamesUITests.swift; sourceTree = "<group>"; };
 		3869F35822B5BDE6001BFABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3869F36522B5BE2B001BFABD /* SnailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailView.swift; sourceTree = "<group>"; };
-		3869F36622B5BE2B001BFABD /* Snail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snail.swift; sourceTree = "<group>"; };
+		3869F36522B5BE2B001BFABD /* SnakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeView.swift; sourceTree = "<group>"; };
+		3869F36622B5BE2B001BFABD /* Snake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		3869F36A22B5BE8F001BFABD /* TicTacToe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe.swift; sourceTree = "<group>"; };
 		3869F36C22B5BE9A001BFABD /* TicTacToeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeView.swift; sourceTree = "<group>"; };
 		3869F36E22B5C13F001BFABD /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				380E52E622BD441200A7ED87 /* Tetris */,
 				3869F36F22B669D2001BFABD /* Lines */,
 				3869F36922B5BE7D001BFABD /* TicTacToe */,
-				3869F36422B5BE2B001BFABD /* Snail */,
+				3869F36422B5BE2B001BFABD /* Snake */,
 				3869F33422B5BDE6001BFABD /* AppDelegate.swift */,
 				3869F33622B5BDE6001BFABD /* SceneDelegate.swift */,
 				3869F33822B5BDE6001BFABD /* ContentView.swift */,
@@ -175,13 +175,13 @@
 			path = SwiftUIGamesUITests;
 			sourceTree = "<group>";
 		};
-		3869F36422B5BE2B001BFABD /* Snail */ = {
+		3869F36422B5BE2B001BFABD /* Snake */ = {
 			isa = PBXGroup;
 			children = (
-				3869F36622B5BE2B001BFABD /* Snail.swift */,
-				3869F36522B5BE2B001BFABD /* SnailView.swift */,
+				3869F36622B5BE2B001BFABD /* Snake.swift */,
+				3869F36522B5BE2B001BFABD /* SnakeView.swift */,
 			);
-			path = Snail;
+			path = Snake;
 			sourceTree = "<group>";
 		};
 		3869F36922B5BE7D001BFABD /* TicTacToe */ = {
@@ -348,14 +348,14 @@
 				3869F36D22B5BE9A001BFABD /* TicTacToeView.swift in Sources */,
 				3869F37322B66A38001BFABD /* Lines.swift in Sources */,
 				380E52E822BD442000A7ED87 /* Tetris.swift in Sources */,
-				3869F36722B5BE2B001BFABD /* SnailView.swift in Sources */,
+				3869F36722B5BE2B001BFABD /* SnakeView.swift in Sources */,
 				3869F33522B5BDE6001BFABD /* AppDelegate.swift in Sources */,
 				3869F33722B5BDE6001BFABD /* SceneDelegate.swift in Sources */,
 				3869F33922B5BDE6001BFABD /* ContentView.swift in Sources */,
 				38B0D4E622C918A5006095C0 /* GridView.swift in Sources */,
 				38D81AD222BEF3D0006972BC /* TetrisView.swift in Sources */,
 				3869F36B22B5BE8F001BFABD /* TicTacToe.swift in Sources */,
-				3869F36822B5BE2B001BFABD /* Snail.swift in Sources */,
+				3869F36822B5BE2B001BFABD /* Snake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

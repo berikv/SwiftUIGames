@@ -1,6 +1,6 @@
 //
 //  SnailView.swift
-//  Snail
+//  Snake
 //
 //  Created by Berik Visschers on 2019-06-15.
 //  Copyright © 2019 Berik Visschers. All rights reserved.
@@ -24,15 +24,15 @@ extension Color {
     static let background = Color(0x7ea082)
 }
 
-struct SnailView: View {
+struct SnakeView: View {
 
     let spacing: Length = 2
     let cellSize: Length = 10
 
     var movesPerSecond: Double { 10 + 0.1 * Double(game.score) }
 
-    @State private var game = Snail()
-    @State var lastMove: Direction = .right
+    @State private var game = Snake()
+    @State var lastMove: Snake.Direction = .right
     @State var timer: Timer?
 
     func playMoveAfterTimeout() {
@@ -42,7 +42,7 @@ struct SnailView: View {
         }
     }
 
-    func playMove(_ direction: Direction) {
+    func playMove(_ direction: Snake.Direction) {
         game.doMove(direction)
         lastMove = direction
         playMoveAfterTimeout()
@@ -50,11 +50,11 @@ struct SnailView: View {
 
     func replay() {
         lastMove = .right
-        game = Snail()
+        game = Snake()
     }
 
     func colorForCellAt(_ x: Int, _ y: Int) -> Color {
-        let position = Position(x: x, y: y)
+        let position = Snake.Position(x: x, y: y)
         if game.snake.contains(position) { return .snail }
         if game.foodPosition == position { return .food }
         return .background
@@ -122,7 +122,7 @@ private struct ControlsView: View {
 #if DEBUG
 struct SnailView_Previews : PreviewProvider {
     static var previews: some View {
-        SnailView()
+        SnakeView()
     }
 }
 #endif

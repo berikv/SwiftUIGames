@@ -14,7 +14,7 @@ struct ContentView : View {
             List {
                 NavigationButton(destination: TicTacToeView()) { Text("Tic tac toe") }
                 NavigationButton(destination: LinesWelcomeView()) { Text("Lines") }
-                NavigationButton(destination: SnailView()) { Text("Snail") }
+                NavigationButton(destination: SnakeView()) { Text("Snake") }
                 NavigationButton(destination: TetrisView()) { Text("Tetris") }
             }
                 .navigationBarTitle(Text("Games"))

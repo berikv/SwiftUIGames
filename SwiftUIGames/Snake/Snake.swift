@@ -1,44 +1,38 @@
 
-import Foundation
-
-public struct Position: Hashable {
-    public var x: Int
-    public var y: Int
-
-    static func +(lhs: Position, rhs: (x: Int, y: Int)) -> Position {
-        return Position(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
-    }
-}
-
-public struct Size: Hashable {
-    public var width: Int
-    public var height: Int
-    public init(width: Int, height: Int) {
-        self.width = width
-        self.height = height
-    }
-}
-
-public enum Direction {
-    case up, down, left, right
-}
-
-public enum SnailError: Error {
-    case invalidMove
-}
-
-public enum SnailStatus {
-    case playing
-    case won
-    case lost
-}
-
-public struct Snail {
+public struct Snake {
     public typealias Move = Direction
 
-    public let size: Size
+    public let size: BoardSize
 
-    public private(set) var status = SnailStatus.playing
+    public enum Direction {
+        case up, down, left, right
+    }
+
+    public enum Status {
+        case playing
+        case won
+        case lost
+    }
+
+    public struct BoardSize: Hashable {
+        public var width: Int
+        public var height: Int
+        public init(width: Int, height: Int) {
+            self.width = width
+            self.height = height
+        }
+    }
+
+    public struct Position: Hashable {
+        public var x: Int
+        public var y: Int
+
+        static func +(lhs: Position, rhs: (x: Int, y: Int)) -> Position {
+            return Position(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+        }
+    }
+
+    public private(set) var status = Status.playing
     public private(set) var snake: [Position]
     public private(set) var foodPosition: Position
 
@@ -47,7 +41,7 @@ public struct Snail {
 
     private let allPositions: Set<Position>
 
-    public init(size: Size = Size(width: 25, height: 25)) {
+    public init(size: BoardSize = BoardSize(width: 25, height: 25)) {
         self.size = size
         self.snake = [Position(x: 2, y: 2), Position(x: 3, y: 2), Position(x: 4, y: 2)]
         self.foodPosition = Position(x: 0, y: 0)
@@ -115,5 +109,5 @@ public struct Snail {
 }
 
 private class Cache {
-    static var allPositions = [Size: Set<Position>]()
+    static var allPositions = [Snake.BoardSize: Set<Snake.Position>]()
 }

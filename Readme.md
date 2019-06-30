@@ -13,14 +13,19 @@ Download Xcode 11 (beta) from http://developer.apple.com/
 
 ## Games
 
-### Snail
+### Snake
 
-A classic.
-<img src="Snail.png" width="200">
+<img src="Snake.png" width="200">
 
 ### Tic tac toe
 
 <img src="Tictactoe.png" width="200">
+
+## Lines
+
+
+## Tetris
+
 
 ## Author
 
