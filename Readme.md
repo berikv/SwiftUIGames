@@ -5,7 +5,8 @@ Some games build using SwiftUI.
 
 ## Prerequisite
 
-Download Xcode 11 (beta) from http://developer.apple.com/
+Download Xcode 11 beta 2 from https://developer.apple.com/download/.
+To run on device, you need to install iOS 13 beta from https://developer.apple.com/download/.
 
 ## Games
 
