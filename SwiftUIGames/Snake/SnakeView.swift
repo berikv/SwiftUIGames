@@ -8,17 +8,7 @@
 
 import SwiftUI
 
-extension Color {
-    init(_ value: Int) {
-        let red = Double(value >> 16 & 0xff) / 255.0
-        let green = Double(value >> 8 & 0xff) / 255.0
-        let blue = Double(value & 0xff) / 255.0
-
-        self.init(red: red, green: green, blue: blue)
-    }
-}
-
-extension Color {
+private extension Color {
     static let snail = Color(0x212d23)
     static let food = Color(0x212d23)
     static let background = Color(0x7ea082)

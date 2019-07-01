@@ -6,82 +6,83 @@
 //  Copyright © 2019 Berik Visschers. All rights reserved.
 //
 
-import Foundation
 
-enum LinesCell: Equatable {
+
+
+
+struct Lines {
     enum CellColor: CaseIterable {
         case red, blue, yellow, green, pink
     }
 
-    case empty
-    case fill(CellColor)
-}
+    enum Cell: Equatable {
+        case empty
+        case fill(CellColor)
+    }
 
-struct LineIndex: Hashable {
-    let row: Int
-    let column: Int
-}
+    struct LineIndex: Hashable {
+        let row: Int
+        let column: Int
+    }
 
-enum Difficulty: CaseIterable {
-    case easy, medium, hard, veryHard
-
-    var size: Int {
-        switch self {
-        case .easy: return 4
-        case .medium: return 6
-        case .hard: return 8
-        case .veryHard: return 10
+    enum Difficulty: CaseIterable {
+        case easy, medium, hard, veryHard
+        var size: Int {
+            switch self {
+            case .easy: return 4
+            case .medium: return 6
+            case .hard: return 8
+            case .veryHard: return 10
+            }
         }
     }
-}
 
-struct Rules {
-    let availableColorsCount: Int
-    let lineLength: Int
-    let addRandomCount: Int
+    struct Rules {
+        let availableColorsCount: Int
+        let lineLength: Int
+        let addRandomCount: Int
 
-    init(availableColorsCount: Int, lineLength: Int, addRandomCount: Int) {
-        self.availableColorsCount = availableColorsCount
-        self.lineLength = lineLength
-        self.addRandomCount = addRandomCount
-    }
+        init(availableColorsCount: Int, lineLength: Int, addRandomCount: Int) {
+            self.availableColorsCount = availableColorsCount
+            self.lineLength = lineLength
+            self.addRandomCount = addRandomCount
+        }
 
-    init(difficulty: Difficulty) {
-        switch difficulty {
-        case .easy:
-            self.lineLength = 3
-            self.availableColorsCount = 3
-            self.addRandomCount = 1
-        case .medium:
-            self.lineLength = 4
-            self.availableColorsCount = 4
-            self.addRandomCount = 1
-        case .hard:
-            self.lineLength = 4
-            self.availableColorsCount = 4
-            self.addRandomCount = 2
-        case .veryHard:
-            self.lineLength = 5
-            self.availableColorsCount = 5
-            self.addRandomCount = 3
+        init(difficulty: Difficulty) {
+            switch difficulty {
+            case .easy:
+                self.lineLength = 3
+                self.availableColorsCount = 3
+                self.addRandomCount = 1
+            case .medium:
+                self.lineLength = 4
+                self.availableColorsCount = 4
+                self.addRandomCount = 1
+            case .hard:
+                self.lineLength = 4
+                self.availableColorsCount = 4
+                self.addRandomCount = 2
+            case .veryHard:
+                self.lineLength = 5
+                self.availableColorsCount = 5
+                self.addRandomCount = 3
+            }
         }
     }
-}
 
-struct Lines {
     let size: Int
     let rules: Rules
 
-    private(set) var nextColorToPut: LinesCell.CellColor
+    private(set) var nextColorToPut: CellColor
     private(set) var score: Int = 0
 
-    private var board: [[LinesCell]]
+    private var board: [[Cell]]
 
     init(size: Int, rules: Rules) {
         self.size = size
         self.rules = rules
         
-        let row = Array(repeating: LinesCell.empty, count: size)
+        let row = Array(repeating: Cell.empty, count: size)
         board = Array(repeating: row, count: size)
 
         nextColorToPut = .blue
@@ -89,13 +90,13 @@ struct Lines {
         addRandom()
     }
 
-    subscript(_ index: LineIndex) -> LinesCell {
+    subscript(_ index: LineIndex) -> Cell {
         get { board[index.column][index.row] }
         set { board[index.column][index.row] = newValue }
     }
 
     mutating func replay() {
-        let row = Array(repeating: LinesCell.empty, count: size)
+        let row = Array(repeating: Cell.empty, count: size)
         board = Array(repeating: row, count: size)
         nextColorToPut = randomColor()
         score = 0
@@ -115,8 +116,8 @@ struct Lines {
         }
     }
 
-    private func randomColor() -> LinesCell.CellColor {
-        let colors = Array(LinesCell.CellColor.allCases[0..<rules.availableColorsCount])
+    private func randomColor() -> CellColor {
+        let colors = Array(CellColor.allCases[0..<rules.availableColorsCount])
         return colors.randomElement()!
     }
 
@@ -125,7 +126,7 @@ struct Lines {
         var toBeCleared = Set<LineIndex>()
 
         for line in lines {
-            var matchColor: LinesCell.CellColor?
+            var matchColor: CellColor?
             var matchingLine = [LineIndex]()
 
             for cellIndex in line {

@@ -8,12 +8,12 @@
 
 import SwiftUI
 
-let cellSpacing: Length = 10
+private let cellSpacing: Length = 10
 
 struct LinesView: View {
     var game: State<Lines>
 
-    init(size: Int, rules: Rules) {
+    init(size: Int, rules: Lines.Rules) {
         self.game = State(initialValue: Lines(size: size, rules: rules))
     }
 
@@ -26,9 +26,9 @@ struct LinesView: View {
                 .foregroundColor(game.value.nextColorToPut.color)
                 .frame(width: 50, height: 50, alignment: .center)
 
-            LinesBoardView(size: self.game.value.size) { row, column in
-                LinesCellView(cell: self.game.value[LineIndex(row: row, column: column)]) {
-                    self.game.value.put(at: LineIndex(row: row, column: column))
+            BoardView(size: self.game.value.size) { row, column in
+                CellView(cell: self.game.value[Lines.LineIndex(row: row, column: column)]) {
+                    self.game.value.put(at: Lines.LineIndex(row: row, column: column))
                 }
             }
                 .aspectRatio(contentMode: .fit)
@@ -40,10 +40,10 @@ struct LinesView: View {
     }
 }
 
-struct LinesBoardView: View {
+private struct BoardView: View {
     let size: Int
-    let createCellHandler: (Int, Int) -> LinesCellView
-    init(size: Int, createCellHandler: @escaping (Int, Int) -> LinesCellView) {
+    let createCellHandler: (Int, Int) -> CellView
+    init(size: Int, createCellHandler: @escaping (Int, Int) -> CellView) {
         self.size = size
         self.createCellHandler = createCellHandler
     }
@@ -61,7 +61,7 @@ struct LinesBoardView: View {
     }
 }
 
-extension LinesCell {
+private extension Lines.Cell {
     var color: Color {
         switch self {
         case .empty: return Color(0xCCCCCC)
@@ -70,7 +70,7 @@ extension LinesCell {
     }
 }
 
-extension LinesCell.CellColor {
+private extension Lines.CellColor {
     var color: Color {
         switch self {
         case .blue: return Color(0x0000AA)
@@ -82,11 +82,11 @@ extension LinesCell.CellColor {
     }
 }
 
-struct LinesCellView: View {
-    let cell: LinesCell
+private struct CellView: View {
+    let cell: Lines.Cell
     let didTapHandler: () -> ()
 
-    init(cell: LinesCell, didTapHandler: @escaping () -> ()) {
+    init(cell: Lines.Cell, didTapHandler: @escaping () -> ()) {
         self.cell = cell
         self.didTapHandler = didTapHandler
     }
@@ -98,11 +98,9 @@ struct LinesCellView: View {
     }
 
     private var cellContent: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color(0xCCCCCC))
-                .overlay(circle)
-        }
+        Rectangle()
+            .foregroundColor(Color(0xCCCCCC))
+            .overlay(circle)
     }
 
     private var circle: some View {
@@ -113,3 +111,11 @@ struct LinesCellView: View {
             .animation(.basic(curve: .easeInOut))
     }
 }
+
+#if DEBUG
+struct LinesView_Previews : PreviewProvider {
+    static var previews: some View {
+        LinesView(size: Lines.Difficulty.easy.size, rules: Lines.Rules(difficulty: .easy))
+    }
+}
+#endif

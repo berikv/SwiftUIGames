@@ -183,3 +183,11 @@ private struct Background: View {
         }
     }
 }
+
+#if DEBUG
+struct TicTacToeView_Previews : PreviewProvider {
+    static var previews: some View {
+        TicTacToeView()
+    }
+}
+#endif

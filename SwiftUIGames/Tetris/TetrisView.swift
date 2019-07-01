@@ -122,3 +122,11 @@ private struct TetrisGameoverView: View {
             .opacity(state == .gameOver ? 1 : 0)
     }
 }
+
+#if DEBUG
+struct TetrisView_Previews : PreviewProvider {
+    static var previews: some View {
+        TetrisView()
+    }
+}
+#endif
