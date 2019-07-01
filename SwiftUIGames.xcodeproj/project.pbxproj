@@ -26,6 +26,9 @@
 		38A1F99D22C78B7E00B98CAF /* Tetromino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F99C22C78B7E00B98CAF /* Tetromino.swift */; };
 		38B0D4E622C918A5006095C0 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0D4E522C918A5006095C0 /* GridView.swift */; };
 		38D81AD222BEF3D0006972BC /* TetrisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D81AD122BEF3D0006972BC /* TetrisView.swift */; };
+		38EC2EAA22C945B00045FEBA /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC2EA922C945B00045FEBA /* Color+hex.swift */; };
+		38EC2EAD22C95A550045FEBA /* MineSweeperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC2EAC22C95A550045FEBA /* MineSweeperView.swift */; };
+		38EC2EAF22C95A620045FEBA /* MineSweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC2EAE22C95A620045FEBA /* MineSweeper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		38A1F99C22C78B7E00B98CAF /* Tetromino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tetromino.swift; sourceTree = "<group>"; };
 		38B0D4E522C918A5006095C0 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		38D81AD122BEF3D0006972BC /* TetrisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisView.swift; sourceTree = "<group>"; };
+		38EC2EA922C945B00045FEBA /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
+		38EC2EAC22C95A550045FEBA /* MineSweeperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSweeperView.swift; sourceTree = "<group>"; };
+		38EC2EAE22C95A620045FEBA /* MineSweeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSweeper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				38B0D4E422C91889006095C0 /* SwiftUIComonents */,
+				38EC2EAB22C95A340045FEBA /* MineSweeper */,
 				380E52E622BD441200A7ED87 /* Tetris */,
 				3869F36F22B669D2001BFABD /* Lines */,
 				3869F36922B5BE7D001BFABD /* TicTacToe */,
@@ -207,8 +214,18 @@
 			isa = PBXGroup;
 			children = (
 				38B0D4E522C918A5006095C0 /* GridView.swift */,
+				38EC2EA922C945B00045FEBA /* Color+hex.swift */,
 			);
 			path = SwiftUIComonents;
+			sourceTree = "<group>";
+		};
+		38EC2EAB22C95A340045FEBA /* MineSweeper */ = {
+			isa = PBXGroup;
+			children = (
+				38EC2EAE22C95A620045FEBA /* MineSweeper.swift */,
+				38EC2EAC22C95A550045FEBA /* MineSweeperView.swift */,
+			);
+			path = MineSweeper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,14 +365,17 @@
 				3869F36D22B5BE9A001BFABD /* TicTacToeView.swift in Sources */,
 				3869F37322B66A38001BFABD /* Lines.swift in Sources */,
 				380E52E822BD442000A7ED87 /* Tetris.swift in Sources */,
+				38EC2EAA22C945B00045FEBA /* Color+hex.swift in Sources */,
 				3869F36722B5BE2B001BFABD /* SnakeView.swift in Sources */,
 				3869F33522B5BDE6001BFABD /* AppDelegate.swift in Sources */,
 				3869F33722B5BDE6001BFABD /* SceneDelegate.swift in Sources */,
+				38EC2EAF22C95A620045FEBA /* MineSweeper.swift in Sources */,
 				3869F33922B5BDE6001BFABD /* ContentView.swift in Sources */,
 				38B0D4E622C918A5006095C0 /* GridView.swift in Sources */,
 				38D81AD222BEF3D0006972BC /* TetrisView.swift in Sources */,
 				3869F36B22B5BE8F001BFABD /* TicTacToe.swift in Sources */,
 				3869F36822B5BE2B001BFABD /* Snake.swift in Sources */,
+				38EC2EAD22C95A550045FEBA /* MineSweeperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

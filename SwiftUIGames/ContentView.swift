@@ -16,6 +16,7 @@ struct ContentView : View {
                 NavigationButton(destination: LinesWelcomeView()) { Text("Lines") }
                 NavigationButton(destination: SnakeView()) { Text("Snake") }
                 NavigationButton(destination: TetrisView()) { Text("Tetris") }
+                NavigationButton(destination: MineSweeperView()) { Text("Mine sweeper") }
             }
                 .navigationBarTitle(Text("Games"))
         }

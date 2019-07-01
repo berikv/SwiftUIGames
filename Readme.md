@@ -26,6 +26,10 @@ To run on device, you need to install iOS 13 beta from https://developer.apple.c
 
 <img src="Documentation/Tetris.gif" width="200">
 
+## Mine sweeper
+
+<img src="Documentation/Minesweeper.gif" width="200">
+
 ## Author
 
 **Berik Visschers**
