@@ -12,11 +12,11 @@ struct ContentView : View {
     var body: some View {
         NavigationView {
             List {
-                NavigationButton(destination: TicTacToeView()) { Text("Tic tac toe") }
-                NavigationButton(destination: LinesWelcomeView()) { Text("Lines") }
-                NavigationButton(destination: SnakeView()) { Text("Snake") }
-                NavigationButton(destination: TetrisView()) { Text("Tetris") }
-                NavigationButton(destination: MineSweeperView()) { Text("Mine sweeper") }
+                NavigationLink(destination: TicTacToeView()) { Text("Tic tac toe") }
+                NavigationLink(destination: LinesWelcomeView()) { Text("Lines") }
+                NavigationLink(destination: SnakeView()) { Text("Snake") }
+                NavigationLink(destination: TetrisView()) { Text("Tetris") }
+                NavigationLink(destination: MineSweeperView()) { Text("Mine sweeper") }
             }
                 .navigationBarTitle(Text("Games"))
         }

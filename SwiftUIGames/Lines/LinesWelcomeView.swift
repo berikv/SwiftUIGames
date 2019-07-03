@@ -18,12 +18,12 @@ struct LinesWelcomeView: View {
     var body: some View {
         List {
             ForEach(Lines.Difficulty.allCases.identified(by: \.self)) { difficulty in
-                NavigationButton(destination: self.linesView(for: difficulty)) {
+                NavigationLink(destination: self.linesView(for: difficulty)) {
                     Text("\(difficulty.size)x\(difficulty.size)")
                 }
             }
 
-            NavigationButton(destination: CustomRulesCreatorView(),
+            NavigationLink(destination: CustomRulesCreatorView(),
                              label: { Text("Custom") })
         }
             .navigationBarTitle(Text("Lines"))
@@ -52,7 +52,7 @@ struct CustomRulesCreatorView: View {
             Stepper(value: $lineLength, in: 2...8) { Text("Line length \(lineLength)") }
             Stepper(value: $addRandomCount, in: 1...8) { Text("Amount of random to add \(addRandomCount)") }
 
-            NavigationButton(destination: linesView,
+            NavigationLink(destination: linesView,
                              label: { Text("Play!") })
 
             Spacer()
