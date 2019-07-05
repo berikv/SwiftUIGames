@@ -25,6 +25,7 @@
 		3869F37722B7826C001BFABD /* LinesWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F37622B7826C001BFABD /* LinesWelcomeView.swift */; };
 		38A1F99D22C78B7E00B98CAF /* Tetromino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F99C22C78B7E00B98CAF /* Tetromino.swift */; };
 		38B0D4E622C918A5006095C0 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0D4E522C918A5006095C0 /* GridView.swift */; };
+		38D5AF5822D1576400B42F4D /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5AF5722D1576300B42F4D /* Matrix.swift */; };
 		38D81AD222BEF3D0006972BC /* TetrisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D81AD122BEF3D0006972BC /* TetrisView.swift */; };
 		38EC2EAA22C945B00045FEBA /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC2EA922C945B00045FEBA /* Color+hex.swift */; };
 		38EC2EAD22C95A550045FEBA /* MineSweeperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC2EAC22C95A550045FEBA /* MineSweeperView.swift */; };
@@ -74,6 +75,7 @@
 		3869F37622B7826C001BFABD /* LinesWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesWelcomeView.swift; sourceTree = "<group>"; };
 		38A1F99C22C78B7E00B98CAF /* Tetromino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tetromino.swift; sourceTree = "<group>"; };
 		38B0D4E522C918A5006095C0 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		38D5AF5722D1576300B42F4D /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		38D81AD122BEF3D0006972BC /* TetrisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisView.swift; sourceTree = "<group>"; };
 		38EC2EA922C945B00045FEBA /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		38EC2EAC22C95A550045FEBA /* MineSweeperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSweeperView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		3869F33322B5BDE6001BFABD /* SwiftUIGames */ = {
 			isa = PBXGroup;
 			children = (
+				38D5AF5622D1575500B42F4D /* Utilities */,
 				38B0D4E422C91889006095C0 /* SwiftUIComonents */,
 				38EC2EAB22C95A340045FEBA /* MineSweeper */,
 				380E52E622BD441200A7ED87 /* Tetris */,
@@ -217,6 +220,14 @@
 				38EC2EA922C945B00045FEBA /* Color+hex.swift */,
 			);
 			path = SwiftUIComonents;
+			sourceTree = "<group>";
+		};
+		38D5AF5622D1575500B42F4D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				38D5AF5722D1576300B42F4D /* Matrix.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		38EC2EAB22C95A340045FEBA /* MineSweeper */ = {
@@ -361,6 +372,7 @@
 			files = (
 				3869F37522B6840D001BFABD /* LinesView.swift in Sources */,
 				3869F37722B7826C001BFABD /* LinesWelcomeView.swift in Sources */,
+				38D5AF5822D1576400B42F4D /* Matrix.swift in Sources */,
 				38A1F99D22C78B7E00B98CAF /* Tetromino.swift in Sources */,
 				3869F36D22B5BE9A001BFABD /* TicTacToeView.swift in Sources */,
 				3869F37322B66A38001BFABD /* Lines.swift in Sources */,

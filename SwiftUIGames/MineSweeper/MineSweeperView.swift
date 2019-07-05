@@ -8,33 +8,40 @@
 
 import SwiftUI
 
+private let numberOfBombs = 10
+private let size = 10
+
 struct MineSweeperView : View {
-    @State var game = MineSweeper()
+    @State var game = MineSweeper(size: size, numberOfBombs: numberOfBombs)
     @State var guessBomb = false
 
     var body: some View {
         VStack {
-            if self.game.state != .playing {
-                Text(self.game.state == .won ? "You WON!" : "Game over")
+            if self.game.state == .gameOver(didWin: true) {
+                Text("You WON!")
+            }
+
+            if self.game.state == .gameOver(didWin: false) {
+                Text("Game over")
             }
             
             Text("Bombs: \(game.bombCount)")
-            Text("Marked: \(game.bombsGuessed)")
+            Text("Marked: \(game.bombsMarked)")
             Toggle(isOn: $guessBomb, label: {Text(guessBomb ? "Guess bomb" : "Guess empty")})
 
             GridView(rows: game.size, columns: game.size) { (row, column) in
-                CellView(state: self.game.board[row][column], gameOver: self.game.state == .gameOver) {
+                CellView(viewModel: self.game.cellStatusAt(row: row, column: column)) {
                     if self.guessBomb {
-                        self.game.guessBomb(row: row, column: column)
+                        self.game.markBomb(row: row, column: column)
                     } else {
-                        self.game.guessEmpty(row: row, column: column)
+                        self.game.explore(row: row, column: column)
                     }
                 }
             }
                 .padding(20)
 
             if self.game.state != .playing {
-                Button(action: { self.game.replay() },
+                Button(action: { self.game = MineSweeper(size: size, numberOfBombs: numberOfBombs) },
                        label: { Text("Replay") })
             }
         }
@@ -42,28 +49,28 @@ struct MineSweeperView : View {
 }
 
 private struct CellView: View {
-    let state: MineSweeper.Cell
-    let gameOver: Bool
+    let viewModel: MineSweeper.CellStatus
     let tapAction: () -> ()
+
     var text: String {
-        switch state {
-        case .knownEmpty(0):
-            return "e"
+        switch viewModel {
+        case .bomb: return "x"
+        case .empty: return "e"
+        case .emptyWithBombCount(let bombCount): return "\(bombCount)"
+        case .exploded: return "X"
+        case .mark: return "?"
+        case .unknown: return ""
+        }
+    }
 
-        case .knownEmpty(let bombCount):
-            return "\(bombCount)"
-
-        case .unknown(let hasBomb):
-            if gameOver {
-                return hasBomb == .bomb ? "x" : "e"
-            }
-            return ""
-
-        case .guessBomb(let hasBomb):
-            return gameOver && hasBomb == .bomb ? "x" : "?"
-
-        case .exploded:
-            return "x"
+    var image: Image {
+        switch viewModel {
+        case .unknown: return Image(systemName: "app.fill")
+        case .empty: return Image(systemName: "app")
+        case .emptyWithBombCount(let bombCount): return Image(systemName: "\(bombCount).square")
+        case .mark: return Image(systemName: "questionmark")
+        case .bomb: return Image(systemName: "dot.circle")
+        case .exploded: return Image(systemName: "xmark.circle")
         }
     }
 
@@ -73,7 +80,7 @@ private struct CellView: View {
                 Rectangle()
                     .foregroundColor(Color.clear)
                     .background(Color(0xcccccc))
-                    .overlay(Text(text))
+                    .overlay(image)
         })
     }
 }
