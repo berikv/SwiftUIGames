@@ -13,8 +13,8 @@ private let cellSpacing: Length = 10
 struct LinesView: View {
     private var game: State<Lines>
 
-    init(size: Int, rules: Lines.Rules) {
-        self.game = State(initialValue: Lines(size: size, rules: rules))
+    init(rules: Lines.Rules) {
+        self.game = State(initialValue: Lines(rules: rules))
     }
 
     var body: some View {
@@ -26,7 +26,7 @@ struct LinesView: View {
                 .foregroundColor(game.value.nextColorToPut.color)
                 .frame(width: 50, height: 50, alignment: .center)
 
-            BoardView(size: self.game.value.size) { row, column in
+            BoardView(size: self.game.value.rules.size) { row, column in
                 CellView(cell: self.game.value[Lines.LineIndex(row: row, column: column)]) {
                     self.game.value.put(at: Lines.LineIndex(row: row, column: column))
                 }
@@ -115,7 +115,7 @@ private struct CellView: View {
 #if DEBUG
 struct LinesView_Previews : PreviewProvider {
     static var previews: some View {
-        LinesView(size: Lines.Difficulty.easy.size, rules: Lines.Rules(difficulty: .easy))
+        LinesView(rules: Lines.Difficulty.easy.rules)
     }
 }
 #endif

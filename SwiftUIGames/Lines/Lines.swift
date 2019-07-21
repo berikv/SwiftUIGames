@@ -23,22 +23,20 @@ struct Lines {
 
     enum Difficulty: CaseIterable {
         case easy, medium, hard, veryHard
-        var size: Int {
-            switch self {
-            case .easy: return 4
-            case .medium: return 6
-            case .hard: return 8
-            case .veryHard: return 10
-            }
-        }
+        var rules: Rules { Rules(difficulty: self) }
     }
 
     struct Rules {
+        let size: Int
         let availableColorsCount: Int
         let lineLength: Int
         let addRandomCount: Int
 
-        init(availableColorsCount: Int, lineLength: Int, addRandomCount: Int) {
+        init(size: Int,
+             availableColorsCount: Int,
+             lineLength: Int,
+             addRandomCount: Int) {
+            self.size = size
             self.availableColorsCount = availableColorsCount
             self.lineLength = lineLength
             self.addRandomCount = addRandomCount
@@ -47,18 +45,22 @@ struct Lines {
         init(difficulty: Difficulty) {
             switch difficulty {
             case .easy:
+                self.size = 4
                 self.lineLength = 3
                 self.availableColorsCount = 3
                 self.addRandomCount = 1
             case .medium:
+                self.size = 6
                 self.lineLength = 4
                 self.availableColorsCount = 4
                 self.addRandomCount = 1
             case .hard:
+                self.size = 8
                 self.lineLength = 4
                 self.availableColorsCount = 4
                 self.addRandomCount = 2
             case .veryHard:
+                self.size = 10
                 self.lineLength = 5
                 self.availableColorsCount = 5
                 self.addRandomCount = 3
@@ -66,7 +68,6 @@ struct Lines {
         }
     }
 
-    let size: Int
     let rules: Rules
 
     private(set) var nextColorToPut: CellColor
@@ -74,12 +75,15 @@ struct Lines {
 
     private var board: [[Cell]]
 
-    init(size: Int, rules: Rules) {
-        self.size = size
+    init(difficulty: Difficulty) {
+        self.init(rules: difficulty.rules)
+    }
+
+    init(rules: Rules) {
         self.rules = rules
         
-        let row = Array(repeating: Cell.empty, count: size)
-        board = Array(repeating: row, count: size)
+        let row = Array(repeating: Cell.empty, count: rules.size)
+        board = Array(repeating: row, count: rules.size)
 
         nextColorToPut = .blue
         nextColorToPut = randomColor()
@@ -92,8 +96,8 @@ struct Lines {
     }
 
     mutating func replay() {
-        let row = Array(repeating: Cell.empty, count: size)
-        board = Array(repeating: row, count: size)
+        let row = Array(repeating: Cell.empty, count: rules.size)
+        board = Array(repeating: row, count: rules.size)
         nextColorToPut = randomColor()
         score = 0
         addRandom()
@@ -175,36 +179,36 @@ struct Lines {
     }
 
     private lazy var allIndexes: [LineIndex] = {
-        (0..<size).flatMap { row in
-            (0..<size).map { column in
+        (0..<rules.size).flatMap { row in
+            (0..<rules.size).map { column in
                 LineIndex(row: row, column: column)
             }
         }
     }()
 
     private lazy var lines: [[LineIndex]] = {
-        let horizontals = (0..<size).map { column in
-            (0..<size).map { row in
+        let horizontals = (0..<rules.size).map { column in
+            (0..<rules.size).map { row in
                 LineIndex(row: row, column: column)
             }
         }
 
-        let verticals = (0..<size).map { row in
-            (0..<size).map { column in
+        let verticals = (0..<rules.size).map { row in
+            (0..<rules.size).map { column in
                 LineIndex(row: row, column: column)
             }
         }
 
         var diagonals = [[LineIndex]]()
-        for k in 0...(size * 2 - 2) {
+        for k in 0...(rules.size * 2 - 2) {
             var diagonalDesc = [LineIndex]()
             var diagonalAsc = [LineIndex]()
 
             for j in 0...k {
                 let i = k - j
-                if i < size && j < size {
+                if i < rules.size && j < rules.size {
                     diagonalAsc.append(LineIndex(row: j, column: i))
-                    diagonalDesc.append(LineIndex(row: j, column: size - i - 1))
+                    diagonalDesc.append(LineIndex(row: j, column: rules.size - i - 1))
                 }
             }
             diagonals.append(diagonalDesc)

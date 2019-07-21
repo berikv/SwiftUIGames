@@ -9,28 +9,26 @@
 import SwiftUI
 
 struct LinesWelcomeView: View {
-
-    func linesView(for difficulty: Lines.Difficulty) -> LinesView {
-        return LinesView(size: difficulty.size,
-                         rules: Lines.Rules(difficulty: difficulty))
-    }
-
     var body: some View {
         List {
             ForEach(Lines.Difficulty.allCases, id: \Lines.Difficulty.self) { difficulty in
-                NavigationLink(destination: self.linesView(for: difficulty)) {
-                    Text("\(difficulty.size)x\(difficulty.size)")
-                }
+                self.navigationLinkFor(difficulty: difficulty)
             }
 
-            NavigationLink(destination: CustomRulesCreatorView(),
-                             label: { Text("Custom") })
+            NavigationLink(destination: CustomRulesCreatorView(), label: { Text("Custom") })
         }
             .navigationBarTitle(Text("Lines"))
     }
+
+    func navigationLinkFor(difficulty: Lines.Difficulty) -> some View {
+        let size = difficulty.rules.size
+        let label = { Text("\(size)x\(size)") }
+        let linesView = LinesView(rules: difficulty.rules)
+        return NavigationLink(destination: linesView, label: label)
+    }
 }
 
-struct CustomRulesCreatorView: View {
+private struct CustomRulesCreatorView: View {
     @State private var size: Int = 6
     @State private var availableColorCount: Int = 4
     @State private var lineLength: Int = 4
@@ -38,26 +36,28 @@ struct CustomRulesCreatorView: View {
 
     private var linesView: LinesView {
         let rules = Lines.Rules(
+            size: size,
             availableColorsCount: availableColorCount,
             lineLength: lineLength,
             addRandomCount: addRandomCount)
 
-        return LinesView(size: size, rules: rules)
+        return LinesView(rules: rules)
     }
 
     var body: some View {
-        VStack(spacing: 30) {
+        Form {
             Stepper(value: $size, in: 3...20) { Text("Board size (\(size)x\(size))") }
             Stepper(value: $availableColorCount, in: 2...Lines.CellColor.allCases.count) { Text("Colors \(availableColorCount)") }
             Stepper(value: $lineLength, in: 2...8) { Text("Line length \(lineLength)") }
-            Stepper(value: $addRandomCount, in: 1...8) { Text("Amount of random to add \(addRandomCount)") }
+            Stepper(value: $addRandomCount, in: 1...8) {
+                Text("Amount of random to add \(addRandomCount)")
+                    .lineLimit(nil)
+            }
 
             NavigationLink(destination: linesView,
                              label: { Text("Play!") })
-
-            Spacer()
         }
             .padding(20)
-            .navigationBarTitle(Text("Lines, custom rules"))
+            .navigationBarTitle(Text("Custom rules"))
     }
 }
