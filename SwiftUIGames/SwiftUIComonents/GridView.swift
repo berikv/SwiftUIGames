@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/// GridView aligns cells exactly in a grid (without rounding errors).
+/// Any rounding error is left as margin to the side of the grid. Use
+/// `horizontalAlignment` and `verticalAlignment` to
+/// control where the rounding error margin should appear.
+
 struct GridView<Cell: View>: View {
     typealias CellBuilder = (_ row: Int, _ column: Int) -> Cell
     let rows: Int
