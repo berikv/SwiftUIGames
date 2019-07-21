@@ -6,10 +6,6 @@
 //  Copyright © 2019 Berik Visschers. All rights reserved.
 //
 
-
-
-
-
 struct Lines {
     enum CellColor: CaseIterable {
         case red, blue, yellow, green, pink

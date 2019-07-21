@@ -22,8 +22,8 @@ struct SnakeView: View {
     var movesPerSecond: Double { 10 + 0.1 * Double(game.score) }
 
     @State private var game = Snake()
-    @State var lastMove: Snake.Direction = .right
-    @State var timer: Timer?
+    @State private var lastMove: Snake.Direction = .right
+    @State private var timer: Timer? = nil
 
     func playMoveAfterTimeout() {
         timer?.invalidate()

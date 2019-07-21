@@ -12,8 +12,8 @@ private let numberOfBombs = 10
 private let size = 10
 
 struct MineSweeperView : View {
-    @State var game = MineSweeper(size: size, numberOfBombs: numberOfBombs)
-    @State var guessBomb = false
+    @State private var game = MineSweeper(size: size, numberOfBombs: numberOfBombs)
+    @State private var guessBomb = false
 
     var body: some View {
         VStack {

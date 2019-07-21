@@ -11,7 +11,7 @@ import SwiftUI
 private let cellSpacing: Length = 10
 
 struct LinesView: View {
-    var game: State<Lines>
+    private var game: State<Lines>
 
     init(size: Int, rules: Lines.Rules) {
         self.game = State(initialValue: Lines(size: size, rules: rules))

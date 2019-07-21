@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TicTacToeView: View {
-    @State var game = TicTacToe()
+    @State private var game = TicTacToe()
 
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
