@@ -108,7 +108,7 @@ private struct CellView: View {
             .inset(by: 5)
             .foregroundColor(cell.color)
             .scaleEffect(cell == .empty ? 0 : 1)
-            .animation(.basic(curve: .easeInOut))
+            .animation(Animation.easeInOut)
     }
 }
 

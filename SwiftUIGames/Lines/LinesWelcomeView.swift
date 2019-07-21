@@ -17,7 +17,7 @@ struct LinesWelcomeView: View {
 
     var body: some View {
         List {
-            ForEach(Lines.Difficulty.allCases.identified(by: \.self)) { difficulty in
+            ForEach(Lines.Difficulty.allCases, id: \Lines.Difficulty.self) { difficulty in
                 NavigationLink(destination: self.linesView(for: difficulty)) {
                     Text("\(difficulty.size)x\(difficulty.size)")
                 }
