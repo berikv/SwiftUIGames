@@ -10,7 +10,7 @@
 		380E52E822BD442000A7ED87 /* Tetris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E52E722BD442000A7ED87 /* Tetris.swift */; };
 		3869F33522B5BDE6001BFABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F33422B5BDE6001BFABD /* AppDelegate.swift */; };
 		3869F33722B5BDE6001BFABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F33622B5BDE6001BFABD /* SceneDelegate.swift */; };
-		3869F33922B5BDE6001BFABD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F33822B5BDE6001BFABD /* ContentView.swift */; };
+		3869F33922B5BDE6001BFABD /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F33822B5BDE6001BFABD /* GamesView.swift */; };
 		3869F33B22B5BDE6001BFABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3869F33A22B5BDE6001BFABD /* Assets.xcassets */; };
 		3869F33E22B5BDE6001BFABD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3869F33D22B5BDE6001BFABD /* Preview Assets.xcassets */; };
 		3869F34122B5BDE6001BFABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3869F33F22B5BDE6001BFABD /* LaunchScreen.storyboard */; };
@@ -54,7 +54,7 @@
 		3869F33122B5BDE6001BFABD /* SwiftUIGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3869F33422B5BDE6001BFABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3869F33622B5BDE6001BFABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3869F33822B5BDE6001BFABD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3869F33822B5BDE6001BFABD /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 		3869F33A22B5BDE6001BFABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3869F33D22B5BDE6001BFABD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3869F34022B5BDE6001BFABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				3869F36422B5BE2B001BFABD /* Snake */,
 				3869F33422B5BDE6001BFABD /* AppDelegate.swift */,
 				3869F33622B5BDE6001BFABD /* SceneDelegate.swift */,
-				3869F33822B5BDE6001BFABD /* ContentView.swift */,
+				3869F33822B5BDE6001BFABD /* GamesView.swift */,
 				3869F33A22B5BDE6001BFABD /* Assets.xcassets */,
 				3869F33F22B5BDE6001BFABD /* LaunchScreen.storyboard */,
 				3869F34222B5BDE6001BFABD /* Info.plist */,
@@ -382,7 +382,7 @@
 				3869F33522B5BDE6001BFABD /* AppDelegate.swift in Sources */,
 				3869F33722B5BDE6001BFABD /* SceneDelegate.swift in Sources */,
 				38EC2EAF22C95A620045FEBA /* MineSweeper.swift in Sources */,
-				3869F33922B5BDE6001BFABD /* ContentView.swift in Sources */,
+				3869F33922B5BDE6001BFABD /* GamesView.swift in Sources */,
 				38B0D4E622C918A5006095C0 /* GridView.swift in Sources */,
 				38D81AD222BEF3D0006972BC /* TetrisView.swift in Sources */,
 				3869F36B22B5BE8F001BFABD /* TicTacToe.swift in Sources */,

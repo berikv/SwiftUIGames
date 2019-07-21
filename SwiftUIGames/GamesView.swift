@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  GamesView.swift
 //  SwiftUIGames
 //
 //  Created by Berik Visschers on 2019-06-16.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView : View {
+struct GamesView : View {
     var body: some View {
         NavigationView {
             List {
@@ -26,7 +26,7 @@ struct ContentView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GamesView()
     }
 }
 #endif
