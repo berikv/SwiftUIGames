@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+typealias Length = CGFloat
+
 /// GridView aligns cells exactly in a grid (without rounding errors).
 /// Any rounding error is left as margin to the side of the grid. Use
 /// `horizontalAlignment` and `verticalAlignment` to
