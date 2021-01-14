@@ -20,21 +20,21 @@ struct LinesView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
 
-            Text("Score \(self.game.value.score)")
+            Text("Score \(self.game.wrappedValue.score)")
 
             Circle()
-                .foregroundColor(game.value.nextColorToPut.color)
+                .foregroundColor(game.wrappedValue.nextColorToPut.color)
                 .frame(width: 50, height: 50, alignment: .center)
 
-            BoardView(size: self.game.value.rules.size) { row, column in
-                CellView(cell: self.game.value[Lines.LineIndex(row: row, column: column)]) {
-                    self.game.value.put(at: Lines.LineIndex(row: row, column: column))
+            BoardView(size: self.game.wrappedValue.rules.size) { row, column in
+                CellView(cell: self.game.wrappedValue[Lines.LineIndex(row: row, column: column)]) {
+                    self.game.wrappedValue.put(at: Lines.LineIndex(row: row, column: column))
                 }
             }
                 .aspectRatio(contentMode: .fit)
                 .padding(cellSpacing)
 
-            Button(action: { self.game.value.replay() },
+            Button(action: { self.game.wrappedValue.replay() },
                    label: { Text("Replay") })
         }
     }
